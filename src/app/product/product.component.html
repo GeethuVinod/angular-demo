@@ -1,0 +1,32 @@
+
+  <div class='product-content'>
+    <h5>Products Available</h5>
+   
+        <ul  *ngFor="let item of productlist">
+          
+            <li>
+            {{ item.ItemName}}
+          </li>
+          <li>
+              {{ item.ItemPrice}}
+            </li>
+            <li [ngStyle]="{'color':item.ItemStatus === 'Sold Out' ? 'red' : 'green'}">
+             {{item.ItemStatus}}
+              </li>
+              <li>
+                <button (click)="OnClickOfAddToCart(item)" class="add-to-cart" >Add to Cart</button>
+              </li>
+              <!-- <li>
+                <div class="form-group">
+                  <select class="form-control" name="quantity">
+                      <option *ngFor="let games of Games" [ngValue]="games" > {{games.name}} </option>
+      
+      
+                  </select>
+                  </div>
+              </li> -->
+             
+          </ul>
+
+   
+  </div>
