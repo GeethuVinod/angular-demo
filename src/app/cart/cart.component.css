@@ -7,3 +7,8 @@
     margin: 0;
     border: 2px solid gray
 } */
+.item-div
+{
+    border-bottom: 1px solid black;
+    padding: 2%;
+}

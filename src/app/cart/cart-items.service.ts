@@ -5,16 +5,21 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class CartItemsService {
-itemDetails = {} as IcartItemDetails;
-items=[] as IcartItemDetails[];
+items: any[] = [];
 quantity=1;
 constructor() { }
 addToCart(item,quantity)
 {
-  this.itemDetails.ItemName=item.ItemName;
-  this.itemDetails.ItemPrice=item.ItemPrice;
-  this.itemDetails.Quantity=quantity;
-this.items.push(this.itemDetails);
+ 
+  var itemDetails: any ={};
+  itemDetails.Quantity=quantity;
+  itemDetails.Item=item;
+  
+  if(itemDetails)
+  {
+    this.items.push(itemDetails);
+  }
+
 console.log("after pushing data to cart-addtocart method")
 console.log(this.items);
 

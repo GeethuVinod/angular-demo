@@ -1,6 +1,6 @@
+import { ItemDetails } from './item-details.item_details';
 export interface IcartItemDetails {
-    ItemName:String;
-    ItemPrice:Number;
+    Item:ItemDetails
 Quantity:Number;    
     }
 

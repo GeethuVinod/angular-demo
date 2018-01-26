@@ -14,3 +14,9 @@
     margin: 0;
     flex-direction: column;
 }
+.added-to-cart-text
+{
+    display: inline-flex;
+    font-style: italic;
+    color: green;   
+}

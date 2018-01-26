@@ -14,7 +14,10 @@
              {{item.ItemStatus}}
               </li>
               <li>
-                <button (click)="OnClickOfAddToCart(item)" class="add-to-cart" >Add to Cart</button>
+                <button [disabled]="isSoldOut(item)" (click)="OnClickOfAddToCart(item)" >Add to Cart</button>
+                <div [hidden]="!checkItemInCart(item)" class="added-to-cart-text">
+                  Added to Cart
+                </div>
               </li>
               <!-- <li>
                 <div class="form-group">

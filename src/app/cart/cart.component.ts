@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import{ItemDetails} from'../../interfaces/item-details.item_details'
 import { CartItemsService } from './cart-items.service';
 import { debug } from 'util';
+import { forEach } from '@angular/router/src/utils/collection';
 
 @Component({
   selector: 'app-cart',
@@ -11,8 +12,13 @@ import { debug } from 'util';
 })
 export class CartComponent implements OnInit {
 cartItemList:IcartItemDetails[]
+numbers: any[] = [];
+quantity=1;
  constructor(private cartservice:CartItemsService){
-
+  for(var i=1;i<=10;i++)
+  {
+this.numbers[i]=i;
+  }
 }
 
   ngOnInit() {

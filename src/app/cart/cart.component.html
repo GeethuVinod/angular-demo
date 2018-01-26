@@ -1,18 +1,28 @@
 <div class='cart-main'>
 Items in your Cart
-<div id='cart-item-list'>
+<div id='cart-item-list' *ngIf="cartItemList?.length>0;else message">
 <ul  *ngFor="let item of cartItemList">
-    
-      <li>
-      {{ item.ItemName}}
+  <div class="item-div">
+        <li>
+      {{ item.Item.ItemName}}
     </li>
     <li>
-        {{ item.ItemPrice}}
+       Price: Rs.{{ item.Item.ItemPrice}}/-
       </li>
-      <li>
+      <!-- <li>
        Quantity - {{item.Quantity}}
-        </li>
+        </li> -->
+        <li>
+          Quantity
+        <select (change)="onSelect($event.target.value)" >
+            
+            <option *ngFor="let number of numbers" [value]="number" >{{number}}</option>
+          </select>
+          </li>
+        </div>
        </ul>
+      
 </div>
+<ng-template #message><div>There are no items in your cart.</div></ng-template>
 </div>
 
