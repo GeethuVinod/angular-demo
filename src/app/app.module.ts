@@ -11,6 +11,7 @@ import { PersonalcareComponent } from './personalcare/personalcare.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { NavbarComponent } from './navbar/navbar.component';
 import { CartComponent } from './cart/cart.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // add routes here in form of array of type Route
 const appRoutes: Routes = [
   { path: 'electronics', component: ProductComponent },
@@ -40,7 +41,9 @@ const appRoutes: Routes = [
      // { enableTracing: true } // <-- debugging purposes only
     ),
     BrowserModule,
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [DataService,CartItemsService],
   bootstrap: [AppComponent]

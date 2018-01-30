@@ -20,3 +20,11 @@
     font-style: italic;
     color: green;   
 }
+.inner-div
+{
+    padding: 8px;
+}
+td {
+    padding: 15px;
+    text-align: left;
+}

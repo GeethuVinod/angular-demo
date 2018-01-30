@@ -12,3 +12,9 @@
     border-bottom: 1px solid black;
     padding: 2%;
 }
+.total-content
+{
+    border-top: 2px solid grey;
+    width: 100%;
+    padding: 2%;
+}

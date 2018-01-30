@@ -1,28 +1,54 @@
-<div class='cart-main'>
-Items in your Cart
-<div id='cart-item-list' *ngIf="cartItemList?.length>0;else message">
-<ul  *ngFor="let item of cartItemList">
-  <div class="item-div">
-        <li>
-      {{ item.Item.ItemName}}
-    </li>
-    <li>
-       Price: Rs.{{ item.Item.ItemPrice}}/-
-      </li>
-      <!-- <li>
-       Quantity - {{item.Quantity}}
-        </li> -->
-        <li>
-          Quantity
-        <select (change)="onSelect($event.target.value)" >
-            
-            <option *ngFor="let number of numbers" [value]="number" >{{number}}</option>
-          </select>
-          </li>
-        </div>
-       </ul>
-      
-</div>
-<ng-template #message><div>There are no items in your cart.</div></ng-template>
+<h5>
+  Products Available</h5>
+<div class="table-responsive" *ngIf="cartItemList?.length>0;else message">
+  <table class="table">
+    <tbody>
+      <th>Item</th>
+      <th>Price</th>
+      <th>Quantity</th>
+      <tr *ngFor="let item of cartItemList">
+
+
+
+        <td>
+          <div class="inner-div">
+            <img src=" {{ item.Item.Path}}" height="90px" width="90px"> {{item.Item.ItemName}}
+          </div>
+        </td>
+
+        <td>
+          <div>
+            Price :&#8377;{{item.Item.ItemPrice}}
+          </div>
+        </td>
+
+        <td>
+          <div>
+            <select [(ngModel)]="item.Quantity" (change)="onSelect()">
+              <option [value]="1" [selected]="isSelected"> 1 </option>
+              <!-- <option *ngFor="let number of numbers" [value]="number" >{{number}}</option> -->
+              <option [value]="2"> 2 </option>
+              <option [value]="3"> 3 </option>
+              <option [value]="4"> 4 </option>
+              <option [value]="5"> 5 </option>
+            </select>
+          </div>
+        </td>
+
+      </tr>
+    </tbody>
+
+  </table>
+<div class="total-content">
+  <div style="float:right;font-weight:bold;font-size:20px">
+      SubTotal=&#8377;{{sub_total}}
+  </div>
 </div>
 
+  <div>
+    <button style="margin-left: 1vw;" class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)=checkoutItems(cartItemList)>Proceed to Checkout</button>
+  </div>
+</div>
+<ng-template #message>
+  <div>There are no items in your cart.</div>
+</ng-template>

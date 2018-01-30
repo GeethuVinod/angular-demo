@@ -7,5 +7,6 @@ export interface ItemDetails {
     ItemName:String;
     ItemPrice:Number;
     ItemStatus:ItemStatusDesc;
+    Path:String;
     
 }

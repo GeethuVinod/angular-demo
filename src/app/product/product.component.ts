@@ -27,6 +27,8 @@ export class ProductComponent implements OnInit {
   ngOnInit() {
     // called when component is loaded
     this.productlist=this.dataService.loadItemsData()
+    console.log("PRODUCTS")
+console.log(this.productlist);
     this.cartlist=this.cartService.loadCartItems()
       }
       

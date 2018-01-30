@@ -1,35 +1,39 @@
 
   <div class='product-content'>
     <h5>Products Available</h5>
-   
-        <ul  *ngFor="let item of productlist">
-          
-            <li>
-            {{ item.ItemName}}
-          </li>
-          <li>
-              {{ item.ItemPrice}}
-            </li>
-            <li [ngStyle]="{'color':item.ItemStatus === 'Sold Out' ? 'red' : 'green'}">
-             {{item.ItemStatus}}
-              </li>
-              <li>
-                <button [disabled]="isSoldOut(item)" (click)="OnClickOfAddToCart(item)" >Add to Cart</button>
-                <div [hidden]="!checkItemInCart(item)" class="added-to-cart-text">
-                  Added to Cart
-                </div>
-              </li>
-              <!-- <li>
-                <div class="form-group">
-                  <select class="form-control" name="quantity">
-                      <option *ngFor="let games of Games" [ngValue]="games" > {{games.name}} </option>
-      
-      
-                  </select>
-                  </div>
-              </li> -->
-             
-          </ul>
-
-   
+  
+          <div class="table-responsive">
+            <table class="table" *ngIf='productlist && productlist.length'>
+                <tbody>
+                    <tr *ngFor="let item of productlist">
+                      <td>
+                        <div>
+                          <img src=" {{ item.Path}}" height="90px" width="90px">
+                        </div>
+                      </td>
+                          <td>
+                              <div class="inner-div">
+                                  <div>
+                                   {{ item.ItemName}}
+                               </div>
+                                  <div>
+                                     {{ item.ItemPrice}}
+                                  </div>
+                                       
+                                <div [ngStyle]="{'color':item.ItemStatus === 'Sold Out' ? 'red' : 'green'}">
+                                         {{ item.ItemStatus}}
+                                    </div>
+                                  <div>
+                                     <button [disabled]="isSoldOut(item)" (click)="OnClickOfAddToCart(item)">Add to Cart</button>
+                                  </div>
+                                  <div [hidden]="!checkItemInCart(item)" class="added-to-cart-text">
+                                    Added to Cart
+                                  </div>
+                              </div>
+                          </td>
+                      
+                        </tr>
+                </tbody>
+              </table>
+              </div>
   </div>
