@@ -30,7 +30,32 @@ li a:hover {
     text-decoration: none;
     background-color: #468; 
 } 
-.nav-right
-{
-    
+.icon {
+    width:30px; 
+    height:30px;
+    position: relative;
+    margin-right: 3vw;
+}
+.txt{
+    background:yellow; 
+    font-size:65%;
+    position: absolute;
+    top: -12px;
+    left: 18px;
+    background: #cccccc;
+    border-radius: 0.8em;
+    -moz-border-radius: 0.8em;
+    -webkit-border-radius: 0.8em;
+    color: #ffffff;
+    display: inline-block;
+    font-weight: bold;
+    line-height: 1.6em;
+    margin-right: 5px;
+    text-align: center;
+    width: 1.6em; 
+}
+.cart-icon
+{    width: 138%;
+    height: 103%;
+
 }

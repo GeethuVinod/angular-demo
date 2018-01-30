@@ -7,7 +7,6 @@
     color:green;
 }
 .product-content {
-    width: 70vw;
     padding:1vw;
     display: flex;
     align-self: flex-start;

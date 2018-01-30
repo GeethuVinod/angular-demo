@@ -5,7 +5,7 @@
           <div class="table-responsive">
             <table class="table" *ngIf='productlist && productlist.length'>
                 <tbody>
-                    <tr *ngFor="let item of productlist">
+                    <tr *ngFor="let item of productlist| paginate: { itemsPerPage: itemsPerPage, currentPage: p }">
                       <td>
                         <div>
                           <img src=" {{ item.Path}}" height="90px" width="90px">
@@ -33,7 +33,9 @@
                           </td>
                       
                         </tr>
+                       
                 </tbody>
               </table>
+              <pagination-controls (pageChange)="p = $event"></pagination-controls>
               </div>
   </div>

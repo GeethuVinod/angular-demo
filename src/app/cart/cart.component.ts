@@ -2,8 +2,7 @@ import { element } from 'protractor';
 import { ItemDetails } from './../../interfaces/item-details.item_details';
 import { IcartItemDetails } from './../../interfaces/icart-item-details';
 import { Component, OnInit } from '@angular/core';
-
-import { CartItemsService } from './cart-items.service';
+import { CartItemsService } from '../shared-services/cart-items.service';
 import { debug } from 'util';
 import { forEach } from '@angular/router/src/utils/collection';
 
@@ -13,6 +12,7 @@ import { forEach } from '@angular/router/src/utils/collection';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
+
   cartItemList: IcartItemDetails[]
   numbers: any[] = [];
   selected_quantity:number=1;
@@ -22,7 +22,7 @@ export class CartComponent implements OnInit {
   constructor(private cartservice: CartItemsService) {
 
   }
-
+  
   ngOnInit() {
     console.log("CART COMPONENT LOADED")
     this.cartItemList = this.cartservice.loadCartItems()
