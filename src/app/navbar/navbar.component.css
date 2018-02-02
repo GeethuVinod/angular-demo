@@ -28,16 +28,16 @@ li a:hover {
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    background-color: #468; 
-} 
+    background-color: #468;
+}
 .icon {
-    width:30px; 
+    width:30px;
     height:30px;
     position: relative;
     margin-right: 3vw;
 }
 .txt{
-    background:yellow; 
+    background:yellow;
     font-size:65%;
     position: absolute;
     top: -12px;
@@ -52,7 +52,7 @@ li a:hover {
     line-height: 1.6em;
     margin-right: 5px;
     text-align: center;
-    width: 1.6em; 
+    width: 1.6em;
 }
 .cart-icon
 {    width: 138%;

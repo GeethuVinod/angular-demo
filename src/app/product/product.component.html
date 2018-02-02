@@ -1,9 +1,12 @@
 
   <div class='product-content'>
     <h5>Products Available</h5>
-  
+<div>
+        <input #searchUserBox id="search-box" style= "float:right;margin-right: 1vw;  width: 18%;" class="form-control mr-sm-2" placeholder="Search" (keydown.enter)="searchItems(searchUserBox.value)"/>
+      </div>
+
           <div class="table-responsive">
-            <table class="table" *ngIf='productlist && productlist.length'>
+            <table class="table" *ngIf='productlist && productlist.length;else message'>
                 <tbody>
                     <tr *ngFor="let item of productlist| paginate: { itemsPerPage: itemsPerPage, currentPage: p }">
                       <td>
@@ -19,23 +22,33 @@
                                   <div>
                                      {{ item.ItemPrice}}
                                   </div>
-                                       
+
                                 <div [ngStyle]="{'color':item.ItemStatus === 'Sold Out' ? 'red' : 'green'}">
                                          {{ item.ItemStatus}}
                                     </div>
+
                                   <div>
-                                     <button [disabled]="isSoldOut(item)" (click)="OnClickOfAddToCart(item)">Add to Cart</button>
+                                     <button  *ngIf="!checkItemInCart(item)" [disabled]="isSoldOut(item)" (click)="OnClickOfAddToCart(item)">Add to Cart</button>
+                                     <button  *ngIf="checkItemInCart(item)" [disabled]="isSoldOut(item)" (click)="OnClickOfDeleteFromCart(item)">Delete from Cart</button>
                                   </div>
+
                                   <div [hidden]="!checkItemInCart(item)" class="added-to-cart-text">
                                     Added to Cart
                                   </div>
                               </div>
                           </td>
-                      
+
                         </tr>
-                       
+
                 </tbody>
               </table>
-              <pagination-controls (pageChange)="p = $event"></pagination-controls>
+              <ng-template #message>
+                  <div>Sorry,No Results found.</div>
+                </ng-template>
+
               </div>
+              <div *ngIf="productlist?.length!=0">
+                  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+              </div>
+
   </div>
